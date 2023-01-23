@@ -1,0 +1,60 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block titulo %}
+<title>Gestión de recetas</title>
+<link rel="stylesheet" href="{% static 'core/css/reserva.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+  <div class="container-fluid">
+    <div class="table table-bordered" id="estiloTabla">
+      <table class="table" id="estilo">
+        
+        <thead>
+        
+          <tr>
+            <div>
+              <center>
+                <h1 style="background-color: rgba(69, 62, 62, 0.421); color: white;">Gestión de mis recetas</h1>
+              </center>
+            </div>
+            <div class="row">
+              <th class="col-xs-3" scope="col">#1</th>
+              <th class="col-xs-3" scope="col">Nombre</th>
+              <th class="col-xs-3" scope="col">Descripcion</th>
+           
+              
+  
+            </div>
+          </tr>
+        </thead>
+        <tbody>
+  
+  
+  
+  
+          {% for receta in recetas %}
+          <tr>
+            <th class="" scope="row">{{receta.idReceta}}</th>
+            <td class="">{{receta.nombreReceta}} </td>
+            <td class="">{{receta.descripcion}}</td>
+            
+            <td class="col-xs-6"> <a href="{% url 'form_mod_receta' receta.idReceta %}" class="btn btn-warning">Modificar</a>
+            </td>
+            <td class="col-xs-6"> <a href="{% url 'form_del_receta' receta.idReceta %}" class="btn btn-danger">Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+  
+        </tbody>
+      </table>
+    </div>
+</div>
+
+  <a href="{% url 'form_receta' %}" class="btn btn-secondary">Agregar receta</a>
+</div>
+
+
+{% endblock %}

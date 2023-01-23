@@ -1,41 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <title>Mantenedor</title>
-</head>
-<body>
-    <h1>Mantenedor de platos</h1>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Categoria</th>
-            <th scope="col">Opciones</th>
-          
-          </tr>
-        </thead>
-        <tbody>
-        {% for plato in platos %}
-          <tr>
-            <th scope="row">{{plato.idPlato}}</th>
-            <td>{{plato.nombrePlato}}</td>
-            <td>{{plato.valorPlato}}</td>
-            <td>{{plato.categoria}}</td>
-            <td> <a href="{% url 'form_mod_plato' plato.idPlato %}">Modificar</a> </td>
-            <td> <a href="{% url 'form_del_plato' plato.idPlato %}">Eliminar</a> </td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
+{% extends "core/base.html" %}
+{% load static %}
 
-      <a href="{% url 'form_plato' %}">Agregar Plato</a>
-   
-</body>
-</html>
+{% block titulo %}
+<title>Gestión de Platos</title>
+<link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="table table-bordered" id="estiloTabla">
+    <div>
+      <center>
+        <h1 style="background-color: rgba(69, 62, 62, 0.421); color: white;">Gestión de mis platos</h1>
+      </center>
+    </div>
+    <table class="table" id="estilo">
+      <thead>
+        <tr>
+          <div class="row">
+            <th class="col-xs-3" scope="col">#1</th>
+            <th class="col-xs-3" scope="col">Nombre</th>
+            <th class="col-xs-3" scope="col">Valor</th>
+            <th class="col-xs-3" scope="col">Categoria</th>
+            <th class="col-xs-12" scope="col">Opciones</th>
+
+          </div>
+        </tr>
+      </thead>
+      <tbody>
+
+
+
+
+        {% for plato in platos %}
+        <tr>
+          <th class="col-xs-3" scope="row">{{plato.idPlato}}</th>
+          <td class="col-xs-3">{{plato.nombrePlato}} </td>
+          <td class="col-xs-3">$ {{plato.valorPlato}}</td>
+          <td class="col-xs-3">{{plato.categoria}}</td>
+          <td class="col-xs-6"> <a href="{% url 'form_mod_plato' plato.idPlato %}" class="btn btn-warning">Modificar</a>
+          </td>
+          <td class="col-xs-6"> <a href="{% url 'form_del_plato' plato.idPlato %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+
+  <a href="{% url 'form_plato' %}" class="btn btn-secondary">Agregar Plato</a>
+  <a href="{% url 'receta' %}" class="btn btn-secondary">Ver recetas</a>
+</div>
+
+
+{% endblock %}

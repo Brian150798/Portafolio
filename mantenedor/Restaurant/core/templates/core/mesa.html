@@ -1,0 +1,57 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block titulo %}
+<title>Mesas</title>
+<link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="table table-bordered" id="estiloTabla">
+    <div>
+      <center>
+        <h1 style="background-color: rgba(52, 102, 196, 0.469); color: white;">Token de Mesas</h1>
+      </center>
+    </div>
+    <table class="table" id="estilo">
+      <thead>
+        <tr>
+          <div class="row">
+            
+            <th class="col-xs-3" scope="col">Numero Mesa</th>
+            <th class="col-xs-3" scope="col">ubicacion</th>
+            <th class="col-xs-3" scope="col">Descripcion</th>
+            <th class="col-xs-3" scope="col">Disponibilidad</th>
+          
+
+          </div>
+        </tr>
+      </thead>
+      <tbody>
+
+
+
+
+        {% for mesa in mesas %}
+        <tr>
+        
+          <td class="col-xs-3">{{mesa.numeroMesa}} </td>
+          <td class="col-xs-3">{{mesa.ubicacion}}</td>
+          <td class="col-xs-3">{{mesa.descripcion}}</td>
+          <td class="col-xs-3">{{mesa.disponible}}</td>
+          
+          
+        </tr>
+        
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+  
+
+</div>
+
+
+{% endblock %}

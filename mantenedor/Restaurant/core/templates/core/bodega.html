@@ -1,0 +1,59 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block titulo %}
+<title>Gestión de bodega</title>
+<link rel="stylesheet" href="{% static 'core/css/bodega.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+  <div class="container-fluid">
+    <div class="table table-bordered" id="estiloTabla">
+      <table class="table" id="estilo">
+        
+        <thead>
+        
+          <tr>
+            <div>
+              <center>
+                <h1 style="background-color: rgba(92, 171, 85, 0.62); color: white">Gestión de bodega</h1>
+              </center>
+            </div>
+            <div class="row">
+              <th class="col-xs-3" scope="col">#1</th>
+              <th class="col-xs-3" scope="col">Nombre</th>
+              <th class="col-xs-3" scope="col">Cantidad</th>
+              <th class="col-xs-3" scope="col">Opciones</th>
+  
+            </div>
+          </tr>
+        </thead>
+        <tbody>
+  
+  
+  
+  
+          {% for bodega in bodegas %}
+          <tr>
+            <th class="col-xs-3" scope="row">{{bodega.idProducto}}</th>
+            <td class="col-xs-3">{{bodega.nombreProducto}} </td>
+            <td class="col-xs-3">{{bodega.cantidadProducto}}</td>
+          
+            <td class="col-xs-6"> <a href="{% url 'form_mod_bodega' bodega.idProducto %}" class="btn btn-warning">Modificar</a>
+            </td>
+            <td class="col-xs-6"> <a href="{% url 'form_del_bodega' bodega.idProducto %}" class="btn btn-danger">Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+  
+        </tbody>
+      </table>
+    </div>
+</div>
+
+  <a href="{% url 'form_bodega' %}" class="btn btn-secondary" style="background-color: rgba(92, 171, 85, 0.62);">Agregar Producto</a>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block titulo %}
+<title>Gestión Pedidos</title>
+<link rel="stylesheet" href="{% static 'core/css/reserva.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+  <div class="container-fluid">
+    <div class="table table-bordered" id="estiloTabla">
+      <table class="table" id="estilo">
+
+        <thead>
+
+          <tr>
+            <div>
+              <center>
+                <h1 style="background-color: rgba(52, 102, 196, 0.469); color: white;">Gestión de pedidos</h1>
+              </center>
+            </div>
+            <div class="row">
+
+              <th class="col-xs-3" scope="col">ID</th>
+              <th class="col-xs-3" scope="col">Nombre</th>
+              <th class="col-xs-3" scope="col">Plato</th>
+              <th class="col-xs-3" scope="col">Estado</th>
+
+
+
+
+
+
+            </div>
+          </tr>
+        </thead>
+        <tbody>
+
+
+
+
+          {% for pedido in pedidos %}
+          <tr>
+            <th class="" scope="row">{{pedido.idPedido}}</th>
+
+            <td class="">{{pedido.numeroMesa}} </td>
+            <td class="">{{pedido.nplato}}</td>
+            <td class="">{{pedido.estado}}</td>
+
+
+            <td class="col-xs-6"> <a href="{% url 'form_mod_pedido' pedido.idPedido %}"
+                class="btn btn-warning">Modificar</a>
+            <td class="col-xs-6"> <a href="{% url 'form_del_pedido' pedido.idPedido %}"
+                class="btn btn-danger">Eliminar</a>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div>
+        <a href="{% url 'receta' %}" class="btn btn-secondary"
+          style="background-color: rgba(52, 102, 196, 0.469);">Ver recetas</a>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+{% endblock %}

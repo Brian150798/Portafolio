@@ -1,0 +1,63 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block titulo %}
+<title>Gestión de reservas</title>
+<link rel="stylesheet" href="{% static 'core/css/reserva.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+  <div class="container-fluid">
+    <div class="table table-bordered" id="estiloTabla">
+      <table class="table" id="estilo">
+        
+        <thead>
+        
+          <tr>
+            <div>
+              <center>
+                <h1 style="background-color: rgba(168, 130, 48, 0.541); color: white;">Gestión de mis reservas</h1>
+              </center>
+            </div>
+            <div class="row">
+              <th class="col-xs-3" scope="col">#1</th>
+              <th class="col-xs-3" scope="col">Nombre</th>
+              <th class="col-xs-3" scope="col">Fecha</th>
+              <th class="col-xs-3" scope="col">Hora</th>
+              <th class="col-xs-3" scope="col">Estado</th>
+              
+  
+            </div>
+          </tr>
+        </thead>
+        <tbody>
+  
+  
+  
+  
+          {% for reserva in reservas %}
+          <tr>
+            <th class="" scope="row">{{reserva.idReservacion}}</th>
+            <td class="">{{reserva.nombreReservacion}} </td>
+            <td class="">{{reserva.fecha}}</td>
+            <td class="">{{reserva.hora}}</td>
+            <td class="">{{reserva.estado}}</td>
+            
+            <td class="col-xs-6"> <a href="{% url 'form_mod_reserva' reserva.idReservacion %}" class="btn btn-warning">Modificar</a>
+            </td>
+            <td class="col-xs-6"> <a href="{% url 'form_del_reserva' reserva.idReservacion %}" class="btn btn-danger">Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+  
+        </tbody>
+      </table>
+    </div>
+</div>
+
+  <a href="{% url 'form_reserva' %}" class="btn btn-secondary" style="background-color: rgba(168, 130, 48, 0.541);">Agregar reserva</a>
+</div>
+
+
+{% endblock %}

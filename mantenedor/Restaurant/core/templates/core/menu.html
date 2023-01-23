@@ -1,0 +1,53 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block titulo %}
+<title>Menu</title>
+<link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="table table-bordered" id="estiloTabla">
+    <div>
+      <center>
+        <h1 style="background-color: rgba(52, 102, 196, 0.469); color: white;">Realizar un pedido</h1>
+      </center>
+    </div>
+    <table class="table" id="estilo">
+      <thead>
+        <tr>
+          <div class="row">
+            
+            <th class="col-xs-3" scope="col">Nombre</th>
+            <th class="col-xs-3" scope="col">Valor</th>
+          
+
+          </div>
+        </tr>
+      </thead>
+      <tbody>
+
+
+
+
+        {% for plato in platos %}
+        <tr>
+        
+          <td class="col-xs-3">{{plato.nombrePlato}} </td>
+          <td class="col-xs-3">$ {{plato.valorPlato}}</td>
+          
+          
+        </tr>
+        
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+  <a href="{% url 'form_pedido' %}" class="btn btn-secondary" style="background-color: rgba(52, 102, 196, 0.469);;">realizar Pedido</a>
+
+</div>
+
+
+{% endblock %}

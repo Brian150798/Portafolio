@@ -1,0 +1,113 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block titulo %}
+<title>Inicio</title>
+<link rel="stylesheet" href="{% static 'core/css/inicio.css' %}">
+{% endblock %}
+
+{% block menu %}
+<a id="texto" class="navbar-brand" href="#about">¿Quienes somos?</a>
+<a id="texto" class="navbar-brand" href="#menu">Menu del dia</a>
+<a id="texto" class="navbar-brand" href="#contact">Contacto</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:100%;min-width:100%" id="home">
+    <div class="container-fluid">
+        <center>
+            <img id="imagenInicio" class="imgInicio" class="w3-image" src="{% static 'core/img/comida2.jpg' %}"
+                alt="Hamburger Catering" width="90%" height="50%">
+            <!--<div class="w3-display-bottomleft w3-padding-large w3-opacity">
+                    <img style="margin-left: 68%;" src="#" alt="Logo" width="55" height="50"></a>
+                </div>-->
+        </center>
+    </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+    <!-- About Section -->
+    <div class="w3-row w3-padding-64" id="about">
+        <div class="w3-col m6 w3-padding-large w3-hide-small">
+            <img src="{% static 'core/img/comida1.jpg' %}" class="w3-round w3-image w3-opacity-min" alt="Table Setting"
+                width="600" height="750">
+        </div>
+
+        <div class="w3-col m6 w3-padding-large">
+            <h1 class="w3-center">¿Quienes somos?</h1><br>
+            <h5 class="w3-center">Tradicion desde 2001</h5>
+            <p class="w3-large">
+                El restaurant fue fundado por el SR. Quiliñan hace más
+                de 20 años. Con mucho esfuerzo, centrandose siempre en calidad
+                de sus productos y la atención al cliente.
+            </p>
+            <p class="w3-large">
+                Por eso y más nuestro restaurant es considerado uno de los más grandes del pais
+                en los ultimos años.
+                Contamos con locales en todo el pais y pronto en más paises de latinoamerica.
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Menu Section -->
+    <div class="w3-row w3-padding-64" id="menu">
+        <div class="w3-col l6 w3-padding-large">
+            <h1 class="w3-center">Menu del dia</h1><br>
+            <p class="w3-large">
+                Dentro del menu del dia encontrarás siempre diversos platillos en oferta.
+                Animate a probar algo nuevo cada dia!
+            </p>
+            <h4>Bread Basket</h4>
+            <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+
+            <h4>Honey Almond Granola with Fruits</h4>
+            <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
+
+            <h4>Belgian Waffle</h4>
+            <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+
+            <h4>Scrambled eggs</h4>
+            <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+
+            <h4>Blueberry Pancakes</h4>
+            <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
+        </div>
+
+        <div class="w3-col l6 w3-padding-large">
+            <img src="{% static 'core/img/logo.jpg' %}" class="w3-round w3-image w3-opacity-min" alt="Menu"
+                style="width:15%">
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Contact Section -->
+    <div class="w3-container w3-padding-64" id="contact">
+        <h1>Contacto</h1><br>
+        <p>
+            Ofrecemos un servicio completo en Restaurant XXI para cualquier evento,
+            grande o pequeño. Entendemos sus necesidades y lo atenderemos con la mejor
+            comida para satisfacer los criterios más importantes de todos,
+            tanto en apariencia como en sabor junto con una atencion de calidad. No dude en ponerse en
+            contacto con nosotros.
+        </p>
+        <p class="w3-text-blue-grey w3-large"><b>
+                Servicio de Restaurant XXI, las condes, 43043 Sanatiago (Sede central), Chile.
+            </b></p>
+        <p>
+            También puede contactarnos por teléfono 00553123-2323 o enviar
+            un correo electrónico a RestaurantXXI@gmail.com.
+        </p>
+
+    </div>
+
+    <!-- End page content -->
+</div>
+{% endblock %}

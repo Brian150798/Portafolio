@@ -1,0 +1,21 @@
+.color {background-color: rgba(255, 255, 255, 0.729);}
+
+h1 {
+
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+
+/**/
+
+
+
+@media (max-width: 477px) { 
+    #estiloTabla {
+        overflow-x:auto; margin-top: 25%;
+    
+        
+    }
+  } 
+
+
